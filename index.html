@@ -12,60 +12,57 @@
 			<h3>Session Length</h3>
 
 			<input type="button"
-						 id="decrease_session_button"
-						 name="decrease_session_button"
-						 value="-">
+   				   id="decrease_session_button"
+   				   name="decrease_session_button"
+   				   value="-">
 			<input type="label"
-					   id="session_length_label"
-						 name="session_length_label"
-						 value=""
-						 disabled>
+				   id="session_length_label"
+				   name="session_length_label"
+				   value=""
+				   disabled>
 			<input type="button"
-						 id="increase_session_button"
-						 name="increase_session_button"
-						 value="+">
+				   id="increase_session_button"
+				   name="increase_session_button"
+				   value="+">
 			<br>
 
 			<h3>Break Length</h3>
 
 			<input type="button"
-						 value="-"
-						 name="decrease_break_button"
-						 onClick="decrease_break_time()">
+			       value="-"
+			       name="decrease_break_button"
+			       onClick="decrease_break_time()">
 			<input type="label"
-						 id="break_length_label"
-						 name="break_length_label"
-						 disabled>
+				   id="break_length_label"
+				   name="break_length_label"
+				   disabled>
 			<input type="button"
-						 value="+"
-						 name="increase_break_button"
-						 onClick="increase_break_time()">
+   				   value="+"
+   				   name="increase_break_button"
+   				   onClick="increase_break_time()">
 			<br>
 
 			<h1 id="stage_label">SESSION</h1>
 			<h1 id="timer"></h1>
 
+			<br>
 
+			<input type="button"
+				   value="Start"
+				   name="start_button">	
+			<input type="button"
+ 				   value="Reset"
+ 				   name="reset_button"
+ 				   onClick="reset_timer()"
+ 				   disabled>
 
 			<br>
 
 			<input type="button"
-						 value="Start"
-						 name="start_button"
-						 onClick="start_timer()">
-			<input type="button"
-						 value="Reset"
-						 name="reset_button"
-						 onClick="reset_timer()"
-						 disabled>
-
-			<br>
-
-			<input type="button"
-						 value="Go To Break"
-						 name="go_to_break_button"
-						 onClick="go_to_break()"
-						 disabled>
+				   value="Go To Break"
+				   name="go_to_break_button"
+				   onClick="go_to_break()"
+				   disabled>
 
 			<br>
 
