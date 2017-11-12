@@ -29,17 +29,17 @@
 			<h3>Break Length</h3>
 
 			<input type="button"
-			       value="-"
+			       id="decrease_break_button"
 			       name="decrease_break_button"
-			       onClick="decrease_break_time()">
+			       value="-">
 			<input type="label"
 				   id="break_length_label"
 				   name="break_length_label"
 				   disabled>
 			<input type="button"
-   				   value="+"
+				   id="increase_break_button"
    				   name="increase_break_button"
-   				   onClick="increase_break_time()">
+   				   value="+">
 			<br>
 
 			<h1 id="stage_label">SESSION</h1>
@@ -48,8 +48,8 @@
 			<br>
 
 			<input type="button"
-				   value="Start"
-				   name="start_button">	
+				   name="start_button"
+				   value="Start">	
 			<input type="button"
  				   value="Reset"
  				   name="reset_button"

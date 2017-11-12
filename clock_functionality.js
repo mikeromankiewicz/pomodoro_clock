@@ -5,9 +5,6 @@ var session_length = 5;
 var state = "fresh";
 var stage = "SESSION";
 
-
-
-
 function populate_form_values()
 {
 	document.getElementById("session_length_label").value = session_length;
@@ -130,3 +127,5 @@ populate_form_values();
 
 document.getElementById('increase_session_button').onclick = increase_session_time;
 document.getElementById('decrease_session_button').onclick = decrease_session_time;
+document.getElementById('increase_break_button').onclick = increase_break_time;
+document.getElementById('decrease_break_button').onclick = decrease_break_time;
