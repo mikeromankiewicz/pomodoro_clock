@@ -57,38 +57,58 @@ function increase_session_time()
 
 function start_pause_resume_timer()
 {
-
 	var seconds = get_seconds_for_countdown();
+	document.getElementById('increase_session_button').disabled = true;
+	document.getElementById('decrease_session_button').disabled = true;
+	document.getElementById('increase_break_button').disabled = true;
+	document.getElementById('decrease_break_button').disabled = true;
 
-	document.getElementById('timer').innerHTML = 
-		convert_seconds_remaining_to_countdown_display(seconds);
+	if (state === "fresh" || state === "paused")
+	{
+		document.getElementById('start_pause_resume_button').value = "Pause";
+		state = "active";
+
+		document.getElementById('timer').innerHTML = 
+			convert_seconds_remaining_to_countdown_display(seconds);
 
 
-	timer_id = setInterval(
-		function()
-		{
-			seconds -= 1;
-
-			if (seconds > 0)
+		timer_id = setInterval(
+			function()
 			{
-				document.getElementById('timer').innerHTML = 
-					convert_seconds_remaining_to_countdown_display(seconds);
-			}
-			else
-			{
-				clearInterval(timer_id);
-				if (stage === "BREAK")
+				seconds -= 1;
+
+				if (seconds > 0)
 				{
-					stage = "SESSION";
+					document.getElementById('timer').innerHTML = 
+						convert_seconds_remaining_to_countdown_display(seconds);
 				}
 				else
 				{
-					stage = "BREAK";
+					clearInterval(timer_id);
+					if (stage === "BREAK")
+					{
+						stage = "SESSION";
+					}
+					else
+					{
+						stage = "BREAK";
+					}
+				populate_form_values();
+				state = "fresh";
+				start_pause_resume_timer();
 				}
-			populate_form_values();
-			start_timer();
-			}
-		}, 1000);
+			}, 1000);
+
+	}
+
+	else if (state === "active")
+	{
+		document.getElementById('start_pause_resume_button').value = "Resume";
+		state = "paused";
+		document.getElementById('timer').innerHTML = 
+			convert_seconds_remaining_to_countdown_display(seconds);
+		clearInterval(timer_id);
+	}
 }
 
 function convert_seconds_remaining_to_countdown_display(seconds)
