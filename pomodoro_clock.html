@@ -1,0 +1,78 @@
+<DOCTYPE! html>
+<html>
+	<head>
+		<title>Pomodoro Clock</title>
+	</head>	
+
+	<body>
+		<h2>FreeCodeCamp</h2>
+		<h3>Pomodoro Clock Challenge</h3>
+
+		<form name="clock">
+			<h3>Session Length</h3>
+
+			<input type="button"
+						 id="decrease_session_button"
+						 name="decrease_session_button"
+						 value="-">
+			<input type="label"
+					   id="session_length_label"
+						 name="session_length_label"
+						 value=""
+						 disabled>
+			<input type="button"
+						 id="increase_session_button"
+						 name="increase_session_button"
+						 value="+">
+			<br>
+
+			<h3>Break Length</h3>
+
+			<input type="button"
+						 value="-"
+						 name="decrease_break_button"
+						 onClick="decrease_break_time()">
+			<input type="label"
+						 id="break_length_label"
+						 name="break_length_label"
+						 disabled>
+			<input type="button"
+						 value="+"
+						 name="increase_break_button"
+						 onClick="increase_break_time()">
+			<br>
+
+			<h1 id="stage_label">SESSION</h1>
+			<h1 id="timer"></h1>
+
+
+
+			<br>
+
+			<input type="button"
+						 value="Start"
+						 name="start_button"
+						 onClick="start_timer()">
+			<input type="button"
+						 value="Reset"
+						 name="reset_button"
+						 onClick="reset_timer()"
+						 disabled>
+
+			<br>
+
+			<input type="button"
+						 value="Go To Break"
+						 name="go_to_break_button"
+						 onClick="go_to_break()"
+						 disabled>
+
+			<br>
+
+		</form>
+
+		<script language="javascript" src="clock_functionality.js"></script>
+
+	</body>
+
+</html>
