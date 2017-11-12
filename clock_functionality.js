@@ -55,7 +55,7 @@ function increase_session_time()
 	console.log(session_length);
 }
 
-function start_timer()
+function start_pause_resume_timer()
 {
 
 	var seconds = get_seconds_for_countdown();
@@ -91,24 +91,6 @@ function start_timer()
 		}, 1000);
 }
 
-function start_pause_resume_timer()
-{
-
-	document.clock.start_button.disabled = true;
-
-	if (document.clock.pause_resume_button.value === "Pause Session")
-	{
-		clearInterval(timer_id);
-		document.clock.pause_resume_button.value = "Resume Session";
-	} 
-	else
-	{
-		start_timer();
-		document.clock.pause_resume_button.value = "Pause Session";
-	}
-	
-}
-
 function convert_seconds_remaining_to_countdown_display(seconds)
 {
 	var minutes_display = parseInt(seconds/60);
@@ -129,3 +111,4 @@ document.getElementById('increase_session_button').onclick = increase_session_ti
 document.getElementById('decrease_session_button').onclick = decrease_session_time;
 document.getElementById('increase_break_button').onclick = increase_break_time;
 document.getElementById('decrease_break_button').onclick = decrease_break_time;
+document.getElementById('start_pause_resume_button').onclick = start_pause_resume_timer;
