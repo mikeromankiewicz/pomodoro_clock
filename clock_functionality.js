@@ -1,7 +1,7 @@
 
 var timer_id;
-var break_length = 1;
-var session_length = 5;
+var break_length = 5;
+var session_length = 25;
 var state = "fresh";
 var stage = "SESSION";
 
@@ -18,7 +18,7 @@ function populate_form_values()
 function decrease_break_time()
 {
 
-	var break_length = parseInt(document.clock.break_length_label.value);
+	break_length = parseInt(document.clock.break_length_label.value);
 	if (break_length > 1)
 	{
 		break_length -= 1;
@@ -29,7 +29,7 @@ function decrease_break_time()
 
 function increase_break_time()
 {
-	var break_length = parseInt(document.clock.break_length_label.value) + 1;
+	break_length = parseInt(document.clock.break_length_label.value) + 1;
 	document.clock.break_length_label.value = break_length;
 }
 
@@ -62,6 +62,7 @@ function start_pause_resume_timer()
 	document.getElementById('decrease_session_button').disabled = true;
 	document.getElementById('increase_break_button').disabled = true;
 	document.getElementById('decrease_break_button').disabled = true;
+	document.getElementById('reset_button').disabled = false;
 
 	if (state === "fresh" || state === "paused")
 	{
@@ -111,6 +112,21 @@ function start_pause_resume_timer()
 	}
 }
 
+function reset_timer()
+{
+	clearInterval(timer_id);
+	state = "fresh";
+	stage = "SESSION";
+	break_length = document.getElementById('break_length_label').value;
+	document.getElementById('start_pause_resume_button').value = "Start";
+	document.getElementById('increase_session_button').disabled = false;
+	document.getElementById('decrease_session_button').disabled = false;
+	document.getElementById('increase_break_button').disabled = false;
+	document.getElementById('decrease_break_button').disabled = false;
+	document.getElementById('reset_button').disabled = true;
+	populate_form_values();
+}
+
 function convert_seconds_remaining_to_countdown_display(seconds)
 {
 	var minutes_display = parseInt(seconds/60);
@@ -132,3 +148,4 @@ document.getElementById('decrease_session_button').onclick = decrease_session_ti
 document.getElementById('increase_break_button').onclick = increase_break_time;
 document.getElementById('decrease_break_button').onclick = decrease_break_time;
 document.getElementById('start_pause_resume_button').onclick = start_pause_resume_timer;
+document.getElementById('reset_button').onclick = reset_timer;
